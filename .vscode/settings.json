@@ -6,5 +6,5 @@
     "commentTranslate.targetLanguage": "zh-CN",
     "commentTranslate.googleTranslate.tld": "cn",
     "commentTranslate.hover.concise": false,
-    "commentTranslate.hover.enabled": true
+    "commentTranslate.hover.enabled": false
 }

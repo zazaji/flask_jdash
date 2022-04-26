@@ -1,0 +1,26 @@
+<!-- 
+<script type="text/javascript" src='/static/js/vendor/select2.js'></script>
+
+<script type="text/javascript" src='/static/js/vendor/ab.js'></script>
+<script type="text/javascript" src='/static/js/vendor/ab_filters.js'></script>
+<style type="text/css" src='/static/css/vendor/select2.css'></style> -->
+
+<div  id="quate-chart" class='collapse'>
+
+<form  action="/charts/{{view.id}}/addmodule" method="post">
+<div   class='container row'>
+    <select id='modules' name="modules"  class="btn btn-default my_select2" onchange="$('#quotedmodule').val($('#modules').val());">
+    {% for category,modules in allmodules.items() %}
+        <optgroup label="-- {{ category }} --" >
+            {% for module in modules %}
+              <option value="{{ module['module'] }}" style="color:#808080">{{ module['category'] }}-{{ module['name'] }}</option>
+            {% endfor %}
+        </optgroup>
+    {% endfor %}
+</select>
+
+<input type="submit" class="btn btn-default" value="submit" name='submit'>
+<textarea class="form-control" rows="4" id='quotedmodule'></textarea>
+</div>
+</form>
+</div>

@@ -1,0 +1,10 @@
+{
+    "commentTranslate.source": "Google",
+    "commentTranslate.hover.string": true,
+    "commentTranslate.hover.variable": true,
+    "commentTranslate.multiLineMerge": true,
+    "commentTranslate.targetLanguage": "zh-CN",
+    "commentTranslate.googleTranslate.tld": "cn",
+    "commentTranslate.hover.concise": false,
+    "commentTranslate.hover.enabled": true
+}

@@ -1,0 +1,64 @@
+
+{% extends "render/charts_base.html" %}
+
+{# Generate all the charts for a row (grid mode only) #}
+
+{# Macro to create a new chart template or existing chart from a config #}
+{%- macro chart(module=None) %}
+    {% if module %}
+        {% set dims = module|get_dims %}
+        {% set fixedcol = view.layout == 'grid' %}
+        {% if fixedcol %}
+            {% set colcount = dims.width|string|replace('col-', '') %}
+            <div class="col-sm-12 col-xs-12 col-md-{{ colcount }} col-lg-{{ colcount }}">
+        {% endif %}
+        <div class="hidden item widget"
+            data-guid="{{ module.guid }}"
+            data-refresh="{{ module.refresh }}"
+            data-refresh-interval="{{ module.refreshInterval }}"
+            style="width:{{ '100%' if fixedcol else '%spx'|format(dims.width) }};height: {{ dims.height }}px;">
+    {% endif %}
+        <div class="error-overlay hidden">
+            <div class="alert alert-danger"></div>
+        </div>
+        <div class="loader-overlay"></div>
+        <span class="widget-loader fa fa-circle-o-notch fa-spin"></span>
+
+        <div class="chart-container"></div>
+        {% if module %}
+            </div><!-- end item.widget -->
+            {% if fixedcol %}
+                </div>
+            {% endif %}
+        {% endif %}
+{% endmacro -%}
+
+{% block chart_body %}
+<div class="row">
+    <div class="col-md-12">
+        {% if not embeddable %}
+            <h1 class="text-center">
+                <span class="dashboard-title">{{ view.name }}</span>
+            <h4 class="text-muted text-center">
+                <span class="text-muted text-center">{{ view.slogan }}11111</span>
+            </h4>
+            </h1>
+
+        {% endif %}
+
+
+        <textarea class="form-control well clearfix collapse" name="config" id="raw-config" cols="30" rows="10">
+            {{ view|jsonstring }}
+        </textarea>
+
+        <div class="layout" data-layout="{{ view.layout or 'freeform' }}" id="view-builder">
+            <div id="container">
+                    {% for module in modules %}
+                        {{ chart(module=module) }}
+                    {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

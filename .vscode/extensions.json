@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "clippy-ai.clippy-ai"
+        "clippy-ai.clippy-ai",
+        "nizami.update-python-packages-and-requirements-txt"
     ]
 }

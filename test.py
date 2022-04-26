@@ -1,10 +1,11 @@
 
 '''
-sorting bubbles
+sorting 
 '''
 
-class Test():
+class Test(y):
     def test():
+       
         ssdasda='asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'+'asd'
         print('ssss'+ssdasda)
-Test.test()
+Test.test(y)

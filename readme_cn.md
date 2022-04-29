@@ -35,5 +35,4 @@
 
 
 参考:
-
 https://github.com/christabor/flask_jsondash

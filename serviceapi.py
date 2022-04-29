@@ -62,8 +62,6 @@ def reqest_data(req,parameter):
     return []   
 
 def get_sql(dbtype,ip,port,dbname,user,password,sql):
-    print('-----------------------')
-    print(dbtype,ip,port,dbname,user,password,sql)
     if 'oracle' in dbtype:
         engine1 = create_engine('oracle://{}:{}@{}:{}/?service_name={}'.format(user, password, ip,port, dbname))
         # sql=sql+' where rownum<' + str(rownum)
